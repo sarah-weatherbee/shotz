@@ -31,4 +31,5 @@ const initializeMovies = () => {
     .catch(err => console.error(err));
 };
 
+
 export default { initializeMovies };
