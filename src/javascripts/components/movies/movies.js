@@ -21,15 +21,32 @@ const domStringBuilder = () => {
   util.printToDom('movies', domString);
 };
 
+const getMovieLocations = (e) => {
+  movies.forEach((movie) => {
+    // if (e.target.id === movie.id) {
+    //   console.error(movie.locations);
+    // }
+    console.error(e.target.id === movie.id);
+  });
+};
+
+const buttonEvents = () => {
+  console.error(movies);
+  movies.forEach((movie) => {
+    document.getElementById(movie.id).addEventListener('click', getMovieLocations);
+  });
+};
+
 const initializeMovies = () => {
   moviesData.getMoviesData()
     .then((resp) => {
       const movieResults = resp.data.movies;
       movies = movieResults;
+      console.error(movies);
       domStringBuilder();
+      buttonEvents();
     })
     .catch(err => console.error(err));
 };
 
-
-export default { initializeMovies };
+export default { initializeMovies, buttonEvents };
