@@ -1,6 +1,6 @@
+import locations from '../locations/locations';
 import moviesData from '../../helpers/data/moviesData';
 import util from '../../helpers/util';
-
 import './movies.scss';
 
 let movies = [];
@@ -21,19 +21,26 @@ const domStringBuilder = () => {
   util.printToDom('movies', domString);
 };
 
-const getMovieLocations = (e) => {
-  movies.forEach((movie) => {
-    // if (e.target.id === movie.id) {
-    //   console.error(movie.locations);
-    // }
-    console.error(e.target.id === movie.id);
+const showMovieInfo = (e) => {
+  const movieId = e.target.id;
+  const selectedMovie = movies.find(x => x.id === movieId);
+  if (selectedMovie) {
+    domStringBuilder([selectedMovie]);
+  } else {
+    domStringBuilder(movies);
+  }
+  const movieLocations = [];
+  const location = locations.bringLocations();
+  selectedMovie.locations.forEach((id) => {
+    const loc = location.find(x => x.id === id);
+    movieLocations.push(loc);
   });
+  locations.domStringBuilder(movieLocations);
 };
 
 const buttonEvents = () => {
-  console.error(movies);
   movies.forEach((movie) => {
-    document.getElementById(movie.id).addEventListener('click', getMovieLocations);
+    document.getElementById(movie.id).addEventListener('click', showMovieInfo);
   });
 };
 
@@ -42,8 +49,7 @@ const initializeMovies = () => {
     .then((resp) => {
       const movieResults = resp.data.movies;
       movies = movieResults;
-      console.error(movies);
-      domStringBuilder();
+      domStringBuilder(movies);
       buttonEvents();
     })
     .catch(err => console.error(err));

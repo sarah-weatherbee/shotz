@@ -63,6 +63,8 @@ const filterButtonEvent = (e) => {
   }
 };
 
+const bringLocations = () => locations;
+
 const filterByTextEvent = (e) => {
   const searchText = e.target.value;
   const searchLocations = locations.filter((x) => {
@@ -92,4 +94,8 @@ const initializeLocations = () => {
 // const buttonEvents = () => {
 //   document.getElementById('dark').addEventListener('click', filterButtonEvent);
 // };
-export default { initializeLocations };
+export default {
+  initializeLocations,
+  bringLocations,
+  domStringBuilder,
+};
