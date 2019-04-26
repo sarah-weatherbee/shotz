@@ -1,15 +1,16 @@
 // import locations from '../locations/locations';
 import moviesData from '../../helpers/data/moviesData';
 import util from '../../helpers/util';
+
 import './movies.scss';
 
 // writing to the dom for the movies component
 
 let movies = [];
 
-const domStringBuilder = () => {
+const domStringBuilder = (shows) => {
   let domString = '';
-  movies.forEach((movie) => {
+  shows.forEach((movie) => {
     domString += `<div class="card col-3" id=${movie.id}>`;
     domString += `<h3 class="card-title">${movie.name}</h3>`;
     domString += '<div class="card-body">';
@@ -23,24 +24,24 @@ const domStringBuilder = () => {
   util.printToDom('movies', domString);
 };
 
-const getMovieLocations = (e) => {
-// function to make secret movie 1
- console.error('hi');
+// const getMovieLocations = (e) => {
+//   movies.forEach((movie) => {
+
+//   });
 
 
-const buttonEvents = () => {
-  document.getElementById('movie1').addEventListener('click', getMovieLocations);
-};
-
-// const initializeMovies = () => {
-//   moviesData.getMoviesData()
-//     .then((resp) => {
-//       const movieResults = resp.data.movies;
-//       movies = movieResults;
-//       domStringBuilder(movies);
-//       buttonEvents();
-//     })
-//     .catch(err => console.error(err));
+// const buttonEvents = () => {
+//   document.getElementById(movie.id).addEventListener('click', getMovieLocations);
 // };
 
-export default { buttonEvents };
+const initializeMovies = () => {
+  moviesData.getMoviesData()
+    .then((resp) => {
+      const movieResults = resp.data.movies;
+      movies = movieResults;
+      domStringBuilder(movies);
+    })
+    .catch(err => console.error(err));
+};
+
+export default { initializeMovies };
