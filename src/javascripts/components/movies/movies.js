@@ -1,4 +1,4 @@
-import locations from '../locations/locations';
+// import locations from '../locations/locations';
 import moviesData from '../../helpers/data/moviesData';
 import util from '../../helpers/util';
 import './movies.scss';
@@ -29,19 +29,18 @@ const getMovieLocations = (e) => {
 
 
 const buttonEvents = () => {
-  document.getElementById('movie1').addEventListener('click', showMovieInfo);
+  document.getElementById('movie1').addEventListener('click', getMovieLocations);
 };
 
-const initializeMovies = () => {
-  moviesData.getMoviesData()
-    .then((resp) => {
-      const movieResults = resp.data.movies;
-      movies = movieResults;
-      domStringBuilder();
-      buttonEvents();
-    })
-    .catch(err => console.error(err));
-};
+// const initializeMovies = () => {
+//   moviesData.getMoviesData()
+//     .then((resp) => {
+//       const movieResults = resp.data.movies;
+//       movies = movieResults;
+//       domStringBuilder(movies);
+//       buttonEvents();
+//     })
+//     .catch(err => console.error(err));
+// };
 
 export default { buttonEvents };
-
