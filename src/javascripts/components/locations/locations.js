@@ -1,7 +1,7 @@
 import locationsData from '../../helpers/data/locationsData';
 import util from '../../helpers/util';
-import './locations.scss';
 
+import './locations.scss';
 // writing to the dom for the locations component
 
 let locations = [];
@@ -91,9 +91,4 @@ const initializeLocations = () => {
     .catch(err => console.error(err));
 };
 
-export default {
-  initializeLocations,
-  domStringBuilder,
-  filterButtonEvent,
-
-};
+export default { initializeLocations };
