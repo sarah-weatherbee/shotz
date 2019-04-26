@@ -3,6 +3,8 @@ import moviesData from '../../helpers/data/moviesData';
 import util from '../../helpers/util';
 import './movies.scss';
 
+// writing to the dom for the movies component
+
 let movies = [];
 
 const domStringBuilder = () => {
@@ -21,27 +23,13 @@ const domStringBuilder = () => {
   util.printToDom('movies', domString);
 };
 
-const showMovieInfo = (e) => {
-  const movieId = e.target.id;
-  const selectedMovie = movies.find(x => x.id === movieId);
-  if (selectedMovie) {
-    domStringBuilder([selectedMovie]);
-  } else {
-    domStringBuilder(movies);
-  }
-  const movieLocations = [];
-  const location = locations.bringLocations();
-  selectedMovie.locations.forEach((id) => {
-    const loc = location.find(x => x.id === id);
-    movieLocations.push(loc);
-  });
-  locations.domStringBuilder(movieLocations);
-};
+const getMovieLocations = (e) => {
+// function to make secret movie 1
+ console.error('hi');
+
 
 const buttonEvents = () => {
-  movies.forEach((movie) => {
-    document.getElementById(movie.id).addEventListener('click', showMovieInfo);
-  });
+  document.getElementById('movie1').addEventListener('click', showMovieInfo);
 };
 
 const initializeMovies = () => {
@@ -49,10 +37,11 @@ const initializeMovies = () => {
     .then((resp) => {
       const movieResults = resp.data.movies;
       movies = movieResults;
-      domStringBuilder(movies);
+      domStringBuilder();
       buttonEvents();
     })
     .catch(err => console.error(err));
 };
 
-export default { initializeMovies, buttonEvents };
+export default { buttonEvents };
+

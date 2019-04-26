@@ -1,7 +1,8 @@
 import locationsData from '../../helpers/data/locationsData';
 import util from '../../helpers/util';
-
 import './locations.scss';
+
+// writing to the dom for the locations component
 
 let locations = [];
 
@@ -63,7 +64,6 @@ const filterButtonEvent = (e) => {
   }
 };
 
-const bringLocations = () => locations;
 
 const filterByTextEvent = (e) => {
   const searchText = e.target.value;
@@ -91,11 +91,9 @@ const initializeLocations = () => {
     .catch(err => console.error(err));
 };
 
-// const buttonEvents = () => {
-//   document.getElementById('dark').addEventListener('click', filterButtonEvent);
-// };
 export default {
   initializeLocations,
-  bringLocations,
   domStringBuilder,
+  filterButtonEvent,
+
 };
