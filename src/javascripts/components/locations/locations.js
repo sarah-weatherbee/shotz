@@ -6,6 +6,7 @@ import './locations.scss';
 
 let locations = [];
 
+
 const shootTimeClass = (shootTime) => {
   let selectedClass = '';
   switch (shootTime) {
