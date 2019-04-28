@@ -1,8 +1,10 @@
 # shotz
 
 ## Description
-A website to keept track of movies and their shooting locations
+A website to keep track of movies and their shooting locations
+
 ## Screenshots
+![image of shotz](https://raw.githubusercontent.com/sarah-weatherbee/shotz/master/src/styles/screenshots/shotz_shot.png)
 
 ## Intallation instructions
 * clone  down this repo

@@ -64,7 +64,6 @@ const filterButtonEvent = (e) => {
   }
 };
 
-
 const filterByTextEvent = (e) => {
   const searchText = e.target.value;
   const searchLocations = locations.filter((x) => {
@@ -91,4 +90,20 @@ const initializeLocations = () => {
     .catch(err => console.error(err));
 };
 
-export default { initializeLocations };
+const getMovieLocations = (movieLocations) => {
+  console.error(movieLocations);
+  const allowedLocations = locations.filter(x => movieLocations.includes(x.id));
+  domStringBuilder(allowedLocations);
+
+  // const allowedLocations = [];
+  // locations.forEach((loc) => {
+  //   movieLocations.forEach((mvId) => {
+  //     if(loc.id === mvId){
+  //       allowedLocations.push(loc);
+  //     }
+  //   })
+  // });
+  // domStringBuilder(allowedLocations);
+};
+
+export default { initializeLocations, getMovieLocations };
