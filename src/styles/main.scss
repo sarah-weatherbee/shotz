@@ -7,3 +7,11 @@ body {
 .card {
   margin: auto;
 }
+
+.card > * {
+  pointer-events: none;
+}
+
+.hide {
+  display: none
+}
