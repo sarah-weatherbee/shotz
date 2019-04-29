@@ -91,7 +91,6 @@ const initializeLocations = () => {
 };
 
 const getMovieLocations = (movieLocations) => {
-  console.error(movieLocations);
   const allowedLocations = locations.filter(x => movieLocations.includes(x.id));
   domStringBuilder(allowedLocations);
 

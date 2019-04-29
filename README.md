@@ -7,7 +7,9 @@ A website to keep track of movies and their shooting locations.
 ![image of shotz](https://raw.githubusercontent.com/sarah-weatherbee/shotz/master/src/styles/screenshots/shotz_shot.png)
 
 ## Installation instructions
-* clone down this repo
+
+* Clone down this repo
+
 * At the root of project run `npm install`
 
 ## How to run
